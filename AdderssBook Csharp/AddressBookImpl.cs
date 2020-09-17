@@ -13,7 +13,16 @@ namespace AdderssBook_Csharp
         {
             Console.WriteLine("Enter first name");
             String firstName = Console.ReadLine();
+           for(int i = 0; i < list.Count; i++)
+            {
+                if (list[i].getFirstName().Equals(firstName))
+                {
+                    Console.WriteLine("you are entering a dublicate person details");
+                    return;
+                }
 
+            }
+                      
             Console.WriteLine("Enter last name");
             String lastName = Console.ReadLine();
 
