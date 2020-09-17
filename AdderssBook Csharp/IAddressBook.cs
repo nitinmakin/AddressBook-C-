@@ -8,5 +8,6 @@ namespace AdderssBook_Csharp
     {
         public void add();
         public void display();
+        public void edit(String firstName);
     }
 }
