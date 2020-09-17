@@ -16,30 +16,30 @@ namespace AdderssBook_Csharp
                 String opt = Console.ReadLine();
                 int option = Convert.ToInt32(opt);
 
-                if (option == 1)
-                    book.add();
-                
-                else if (option == 2)
-                    book.display();
-
-                else if (option == 3)
+                switch (option)
                 {
-                    Console.WriteLine("Enter name");
-                    String name = Console.ReadLine();
-                    book.edit(name);
+                    case 1:
+                        book.add();
+                        break;
+                    case 2:
+                        book.display();
+                        break;
+                    case 3:
+                        Console.WriteLine("Enter name");
+                        String editName = Console.ReadLine();
+                        book.edit(editName);
+                        break;
+                    case 4:
+                        Console.WriteLine("enter name");
+                        String deleteName = Console.ReadLine();
+                        book.delete(deleteName);
+                        break;
                 }
 
-                else if(option == 4)
-                {
-                    Console.WriteLine("enter name");
-                    String name = Console.ReadLine();
-                    book.delete(name);
-
-                }
-                else
-                    check = false;
             }
-
         }
     }
 }
+
+
+
