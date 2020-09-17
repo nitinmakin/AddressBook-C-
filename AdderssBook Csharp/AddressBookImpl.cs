@@ -37,6 +37,17 @@ namespace AdderssBook_Csharp
 
         }
 
+        public void delete(string firstName)
+        {
+           for(int i = 0; i < list.Count; i++)
+            {
+                if (list[i].getFirstName().Equals(firstName))
+                {
+                    list.Remove(person);
+                }
+            }
+        }
+
         public void display()
         {
             foreach (Person item in list)

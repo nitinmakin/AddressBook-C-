@@ -12,23 +12,29 @@ namespace AdderssBook_Csharp
             Boolean check = true;
             while (check == true)
             {
-                Console.WriteLine("1.ADD 2.Display 3.edit");
-                String option = Console.ReadLine();
-                int option1 = Convert.ToInt32(option);
+                Console.WriteLine("1.ADD 2.DISPLAY 3.EDIT 4.DELETE");
+                String opt = Console.ReadLine();
+                int option = Convert.ToInt32(opt);
 
-                if (option1 == 1)
-                {
+                if (option == 1)
                     book.add();
-                }
-
-                else if (option1 == 2)
+                
+                else if (option == 2)
                     book.display();
 
-                else if (option1 == 3)
+                else if (option == 3)
                 {
                     Console.WriteLine("Enter name");
-                    String s = Console.ReadLine();
-                    book.edit(s);
+                    String name = Console.ReadLine();
+                    book.edit(name);
+                }
+
+                else if(option == 4)
+                {
+                    Console.WriteLine("enter name");
+                    String name = Console.ReadLine();
+                    book.delete(name);
+
                 }
                 else
                     check = false;
