@@ -10,5 +10,6 @@ namespace AdderssBook_Csharp
         public void display();
         public void edit(String firstName);
         public void delete(String firstName);
+        public void sortByName();
     }
 }

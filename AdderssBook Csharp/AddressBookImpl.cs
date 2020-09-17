@@ -1,19 +1,26 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
+using System.Collections.Specialized;
+using System.ComponentModel;
+using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using System.Text;
 
 namespace AdderssBook_Csharp
 {
-    class AddressBookImpl : IAddressBook
+    class AddressBookImpl : IAddressBook , IComparer<Person>
     {
         Person person = null;
         List<Person> list = new List<Person>();
+
+        public object Comparator { get; private set; }
+
         public void add()
         {
             Console.WriteLine("Enter first name");
             String firstName = Console.ReadLine();
-           for(int i = 0; i < list.Count; i++)
+            for (int i = 0; i < list.Count; i++)
             {
                 if (list[i].getFirstName().Equals(firstName))
                 {
@@ -22,7 +29,7 @@ namespace AdderssBook_Csharp
                 }
 
             }
-                      
+
             Console.WriteLine("Enter last name");
             String lastName = Console.ReadLine();
 
@@ -46,9 +53,11 @@ namespace AdderssBook_Csharp
 
         }
 
+       
+
         public void delete(string firstName)
         {
-           for(int i = 0; i < list.Count; i++)
+            for (int i = 0; i < list.Count; i++)
             {
                 if (list[i].getFirstName().Equals(firstName))
                 {
@@ -67,35 +76,72 @@ namespace AdderssBook_Csharp
 
         public void edit(String firstName)
         {
-
+                     
+            int check = 0;
             for (int i = 0; i < list.Count; i++)
             {
                 if (list[i].getFirstName().Equals(firstName))
                 {
-                    Person person = list[i];
-                    Console.WriteLine(person);
+                    while(check == 0) 
+                    {
+                        Person person = list[i];                                                
+                        Console.WriteLine(person);
+                        Console.WriteLine("1.address 2.city 3.state 4.phoneNo 5.zip  6.save & exit");
+                        String opt = Console.ReadLine();
+                        int option = Convert.ToInt32(opt);
+                        switch (option)
+                        {
+                            case 1:
+                                Console.WriteLine("enter new address");
+                                String address = Console.ReadLine();
+                                person.setAddress(address);
+                                break;
 
-                    Console.WriteLine("enter new address");
-                    String address = Console.ReadLine();
-                    person.setAddress(address);
+                            case 2:
+                                Console.WriteLine("enter new city");
+                                String city = Console.ReadLine();
+                                person.setCity(city);
+                                break;
 
-                    Console.WriteLine("enter new city");
-                    String city = Console.ReadLine();
-                    person.setCity(city);
+                            case 3:
+                                Console.WriteLine("enter new state");
+                                String state = Console.ReadLine();
+                                person.setState(state);
+                                break;
 
-                    Console.WriteLine("enter new state");
-                    String state = Console.ReadLine();
-                    person.setState(state);
+                            case 4:
+                                Console.WriteLine("enter new phoneNo");
+                                String phoneNo = Console.ReadLine();
+                                person.setMobileNo(phoneNo);
+                                break;
 
-                    Console.WriteLine("enter new phoneNo");
-                    String phoneNo = Console.ReadLine();
-                    person.setMobileNo(phoneNo);
+                            case 5:
+                                Console.WriteLine("enter new zipCode");
+                                String zipCode = Console.ReadLine();
+                                person.setzipcode(zipCode);
+                                break;
 
-                    Console.WriteLine("enter new zipCode");
-                    String zipCode = Console.ReadLine();
-                    person.setzipcode(zipCode);
+                            case 6:
+                                check = 1;
+                                break;
+                                    
+                                     
+                        }
                 }
             }
+        }
+    }
+        public void sortByName()
+        {
+
+            list.Sort(this.Compare);
+            this.display();
+        }
+     
+        public int Compare( Person x , Person y)
+        {
+            return x.getFirstName().CompareTo(y.getFirstName());
+
         }
     }
 }
