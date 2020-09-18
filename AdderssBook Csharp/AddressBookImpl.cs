@@ -160,6 +160,25 @@ namespace AdderssBook_Csharp
 
         }
 
+        public void viewByCity(String city)
+        {
+            for (int i = 0; i < list.Count; i++)
+            {
+                if (list[i].City.Equals(city))
+                    Console.WriteLine(list[i]);
+            }
+
+        }
+        public void viewByState(String State)
+        {
+            for (int i = 0; i < list.Count; i++)
+            {
+                if (list[i].State.Equals(State))
+                    Console.WriteLine(list[i]);
+            }
+
+        }
+
     }
 }
 
