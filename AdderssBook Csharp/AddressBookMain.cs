@@ -12,7 +12,7 @@ namespace AdderssBook_Csharp
             Boolean check = true;
             while (check == true)
             {
-                Console.WriteLine("1.ADD 2.DISPLAY 3.EDIT 4.DELETE  5.sort  9.EXIT");
+                Console.WriteLine("1.ADD 2.DISPLAY 3.EDIT 4.DELETE  5.SORT  9.EXIT");
                 String opt = Console.ReadLine();
                 int option = Convert.ToInt32(opt);
 
