@@ -38,7 +38,5 @@ namespace AdderssBook_Csharp
             return "[firstName=" + FirstName + ", lastName=" + LastName + ", address=" + Address + ", city=" + City
                  + ", state=" + State + ", zipCode=" + ZipCode + ", PhoneNo=" + PhoneNo + "]" + "\n";
         }
-
-       
     }
 }
