@@ -12,7 +12,7 @@ namespace AdderssBook_Csharp
             Boolean check = true;
             while (check == true)
             {
-                Console.WriteLine("1.ADD 2.DISPLAY 3.EDIT 4.DELETE  5.SORT  6.VIEW  9.EXIT");
+                Console.WriteLine("1.ADD 2.DISPLAY 3.EDIT 4.DELETE  5.SORT  6.VIEW   7.SEARCH   9.EXIT");
                 String opt = Console.ReadLine();
                 int option = Convert.ToInt32(opt);
 
@@ -54,6 +54,28 @@ namespace AdderssBook_Csharp
                             Console.WriteLine("Enter State");
                             String state = Console.ReadLine();
                             book.viewByState(state);
+                        }
+
+                        else
+                            Console.WriteLine("enter valid number");
+                        break;
+
+                    case 7:
+
+                        Console.WriteLine("1.SEARCH BY CITY   2.SEARCH BY STATE");
+                        String optn1 = Console.ReadLine();
+                        int num1 = Convert.ToInt32(optn1);
+
+                        if (num1 == 1)
+                        {
+                            Console.WriteLine("Enter name of person");
+                            String name = Console.ReadLine();
+                            book.searchPersonInCity(name);              }
+                        else if (num1 == 2)
+                        {
+                            Console.WriteLine("Enter name");
+                            String name = Console.ReadLine();
+                            book.searchPersonInState(name);
                         }
 
                         else

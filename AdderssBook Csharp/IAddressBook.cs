@@ -13,6 +13,9 @@ namespace AdderssBook_Csharp
         public void sortByName();
         public void viewByCity(String city);
         public void viewByState(String State);
+        public void searchPersonInCity(String name);
+
+        public void searchPersonInState(String name);
 
 
 

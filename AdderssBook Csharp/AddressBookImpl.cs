@@ -179,6 +179,30 @@ namespace AdderssBook_Csharp
 
         }
 
+        public void searchPersonInCity(String name)
+        {
+            for (int i = 0; i < list.Count; i++)
+            {
+                if (list[i].FirstName.Equals(name))
+                {
+                    Console.WriteLine(list[i].City);
+                }
+            }
+
+        }
+
+        public void searchPersonInState(String name)
+        {
+            for (int i = 0; i < list.Count; i++)
+            {
+                if (list[i].FirstName.Equals(name))
+                {
+                    Console.WriteLine(list[i].State);
+                }
+            }
+
+        }
+
     }
 }
 
